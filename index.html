@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's in My Fridge?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header-toolbar">
+            <h1>What's in My Fridge?</h1>
+            <button id="shopping-list-btn">
+                🛒 View Shopping List (<span id="shopping-list-count">0</span>)
+            </button>
+        </div>
+        <div class="main-layout">
+            <div class="ingredient-panel">
+                <form id="ingredientForm">
+                    <h2>Select Ingredients</h2>
+                    <input type="search" id="ingredientSearch" placeholder="Search ingredients...">
+                    <div class="selection-toolbar">
+                        <span id="selectionCount">0 selected</span>
+                        <button type="button" id="clearSelectionBtn">Clear All</button>
+                    </div>
+                    <div class="ingredient-groups-container" id="ingredientGroups"></div>
+                    <button type="submit" class="submit-btn" id="submitBtn">Find Recipes</button>
+                </form>
+            </div>
+
+            <div class="results-panel">
+                <h2>Matching Recipes</h2>
+                <div id="cuisine-filters"></div>
+                <div id="results">
+                    <div class="empty-state">
+                        <p>Select some ingredients and click "Find Recipes" to start!</p>
+                    </div>
+                </div>
+                <div class="loader-container" id="loader"><div class="loader"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shopping List Modal -->
+    <div class="modal-overlay" id="shopping-list-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Your Shopping List</h2>
+                <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+            </div>
+            <ul id="shopping-list-items"></ul>
+            <div class="modal-actions">
+                <button class="submit-btn" id="copy-list-btn">Copy List</button>
+                <button class="add-to-list-btn" id="clear-list-btn" style="background-color: var(--error-color);">Clear List</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
